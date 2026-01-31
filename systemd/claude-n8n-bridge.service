@@ -1,0 +1,23 @@
+[Unit]
+Description=Claude n8n Bridge Server - Self-healing workflow system
+After=network.target docker.service
+Wants=docker.service
+
+[Service]
+Type=simple
+User=claude-bridge
+Group=claude-bridge
+WorkingDirectory=/opt/claude-n8n-bridge
+Environment=NODE_ENV=production
+Environment=BRIDGE_API_KEY=dd0071b4af7c583f04bf326dec5fd504e7c8bf8382a1e5bd3bb1ec3ed4232d08
+Environment=PORT=3456
+Environment=HOME=/home/claude-bridge
+ExecStart=/usr/bin/node /opt/claude-n8n-bridge/server.js
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=claude-n8n-bridge
+
+[Install]
+WantedBy=multi-user.target
