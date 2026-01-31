@@ -1,5 +1,5 @@
 {
-  "name": "claude-n8n-bridge",
+  "name": "self-healing-n8n",
   "version": "1.0.0",
   "description": "Bridge server for self-healing n8n workflows using Claude Code",
   "main": "server.js",
